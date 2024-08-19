@@ -29,6 +29,6 @@ class _MainSplashState extends State<MainSplash> {
 
 Future<void>goToSecondSplash()async{
   await Future.delayed(const Duration(seconds: 3));
-  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>BottomNavigation()));
+  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>HomeScreen()));
 }
 }
