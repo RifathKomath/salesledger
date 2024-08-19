@@ -26,19 +26,19 @@ class _HomeScreenState extends State<HomeScreen> {
     "All Sales"
   ];
   List screens = [
-    ViewSales(),
-    AddCustomer(),
-    AddProduct(),
-    ViewCustomer(),
-    ViewProduct(),
-    AllSales()
+    const ViewSales(),
+   const AddCustomer(),
+  const  AddProduct(),
+   const ViewCustomer(),
+   const ViewProduct(),
+   const AllSales()
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(47),
+        preferredSize:const Size.fromHeight(47),
         child: AppBar(
           backgroundColor: Colors.white,
           title: Row(
@@ -54,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: Column(
         children: [
-          Divider(),
+        const  Divider(),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -77,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: Center(
                         child: Text(
                           names[index],
-                          style: TextStyle(
+                          style:const TextStyle(
                               fontSize: 17, fontWeight: FontWeight.w700,)
                               ,
                         ),

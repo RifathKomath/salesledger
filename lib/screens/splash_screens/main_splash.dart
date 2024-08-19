@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:supermarket_uae/screens/bottom_navigation.dart';
 import 'package:supermarket_uae/screens/main_screens/main_menu.dart';
 
 class MainSplash extends StatefulWidget {
@@ -28,6 +29,6 @@ class _MainSplashState extends State<MainSplash> {
 
 Future<void>goToSecondSplash()async{
   await Future.delayed(const Duration(seconds: 3));
-  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>HomeScreen()));
+  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>BottomNavigation()));
 }
 }

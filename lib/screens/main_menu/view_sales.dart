@@ -14,7 +14,7 @@ class _ViewSalesState extends State<ViewSales> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(47),
+        preferredSize:const Size.fromHeight(47),
         child: AppBar(
           backgroundColor: Colors.white,
           title: Row(
@@ -28,7 +28,7 @@ class _ViewSalesState extends State<ViewSales> {
           ),
         ),
       ),
-       body: SingleChildScrollView(
+       body:const SingleChildScrollView(
         child: Column(
           children: [
             Divider(),
