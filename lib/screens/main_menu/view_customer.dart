@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:supermarket_uae/screens/classes.dart';
+import 'package:supermarket_uae/screens/custom_designs/classes.dart';
 
 class ViewCustomer extends StatefulWidget {
   const ViewCustomer({super.key});

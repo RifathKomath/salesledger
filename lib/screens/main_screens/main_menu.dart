@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:supermarket_uae/screens/classes.dart';
+import 'package:supermarket_uae/screens/custom_designs/classes.dart';
 import 'package:supermarket_uae/screens/main_menu/add_customer.dart';
 import 'package:supermarket_uae/screens/main_menu/add_product.dart';
 import 'package:supermarket_uae/screens/main_menu/all_sales.dart';
