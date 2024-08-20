@@ -9,12 +9,16 @@ class ViewCustomer extends StatefulWidget {
 }
 
 class _ViewCustomerState extends State<ViewCustomer> {
+
+
+  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: PreferredSize(
-        preferredSize:const Size.fromHeight(47),
+        preferredSize: const Size.fromHeight(47),
         child: AppBar(
           backgroundColor: Colors.white,
           title: Row(
@@ -28,13 +32,15 @@ class _ViewCustomerState extends State<ViewCustomer> {
           ),
         ),
       ),
-       body:const SingleChildScrollView(
+       body:  
+      SingleChildScrollView(
         child: Column(
           children: [
             Divider(),
-          ],
-        ),
-      ),
+
+          ]
+        )
+      )
     );
   }
 }

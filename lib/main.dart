@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:supermarket_uae/screens/splash_screens/main_splash.dart';
 
-void main() {
+Future<void> main() async {
   runApp(const MyApp());
 }
 

@@ -1,11 +1,13 @@
-
 import 'package:flutter/material.dart';
 import 'package:supermarket_uae/screens/custom_designs/classes.dart';
 import 'package:supermarket_uae/screens/custom_designs/textformfield.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:supermarket_uae/screens/model/add_customer.dart';
 
 class AddCustomer extends StatefulWidget {
   const AddCustomer({super.key});
+
+  set id(int id) {}
 
   @override
   State<AddCustomer> createState() => _AddCustomerState();

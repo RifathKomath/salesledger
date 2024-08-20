@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_calendar_widget/flutter_calendar_widget.dart';
 import 'package:supermarket_uae/screens/custom_designs/classes.dart';
 
 class ViewSales extends StatefulWidget {
@@ -28,10 +29,21 @@ class _ViewSalesState extends State<ViewSales> {
           ),
         ),
       ),
-       body:const SingleChildScrollView(
+       body: SingleChildScrollView(
         child: Column(
           children: [
             Divider(),
+    FlutterCalendar(
+      style: CalendarStyle(markerColor: Colors.teal,
+      rangeLineColor: Colors.black54),
+    selectionMode: CalendarSelectionMode.range,
+    onRageDate: (CalendarDateRange dateRange) {
+        print(
+            'start: ${dateRange.start}, end: ${dateRange.end}',
+        );
+    },
+),
+
           ],
         ),
       ),
