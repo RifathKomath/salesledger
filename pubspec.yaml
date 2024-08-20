@@ -38,10 +38,17 @@ dependencies:
   google_nav_bar: ^5.0.6
   line_icons: ^2.0.3
   carousel_slider: ^5.0.0
+  lottie: ^3.1.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: "^0.13.1"
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/Ledger Icon 2 - Wave Apps.jpeg"
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -69,6 +76,7 @@ flutter:
     - assets/carousal/6-1024x576.jpg
     - assets/carousal/9-1024x576.jpg
     - assets/carousal/10-1024x576.jpg
+    - assets/o1CzpmiVxe (1).json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

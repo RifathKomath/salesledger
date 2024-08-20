@@ -1,4 +1,3 @@
-import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:supermarket_uae/screens/custom_designs/classes.dart';
@@ -61,7 +60,7 @@ class _AddCustomerState extends State<AddCustomer> {
                   aspectRatio: 16 / 9,
                   autoPlayCurve: Curves.fastOutSlowIn,
                   enableInfiniteScroll: true,
-                  autoPlayAnimationDuration:const  Duration(seconds: 1),
+                  autoPlayAnimationDuration: const Duration(seconds: 1),
                   viewportFraction: 0.8,
                 ),
                 items: images.map((item) {
@@ -69,7 +68,7 @@ class _AddCustomerState extends State<AddCustomer> {
                     builder: (BuildContext context) {
                       return Container(
                         width: MediaQuery.of(context).size.width,
-                        margin:const  EdgeInsets.symmetric(horizontal: 5.0),
+                        margin: const EdgeInsets.symmetric(horizontal: 5.0),
                         child: Image.asset(
                           item,
                         ),
