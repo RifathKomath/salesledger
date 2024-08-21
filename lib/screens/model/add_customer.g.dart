@@ -21,13 +21,14 @@ class CustomerSectionAdapter extends TypeAdapter<CustomerSection> {
       customerPhone: fields[1] as String?,
       customerAddress: fields[2] as String?,
       customerMail: fields[3] as String?,
+      id: fields[4] as int?,
     );
   }
 
   @override
   void write(BinaryWriter writer, CustomerSection obj) {
     writer
-      ..writeByte(4)
+      ..writeByte(5)
       ..writeByte(0)
       ..write(obj.customerName)
       ..writeByte(1)
@@ -35,7 +36,9 @@ class CustomerSectionAdapter extends TypeAdapter<CustomerSection> {
       ..writeByte(2)
       ..write(obj.customerAddress)
       ..writeByte(3)
-      ..write(obj.customerMail);
+      ..write(obj.customerMail)
+      ..writeByte(4)
+      ..write(obj.id);
   }
 
   @override

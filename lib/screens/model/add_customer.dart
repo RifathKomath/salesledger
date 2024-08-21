@@ -15,10 +15,14 @@ class CustomerSection extends HiveObject{
   @HiveField(3)
   String? customerMail;
 
+@HiveField(4)
+int?  id;
+
   CustomerSection({
     required this.customerName,
     required this.customerPhone,
     required this.customerAddress,
     this.customerMail,
+    this.id
   });
 }

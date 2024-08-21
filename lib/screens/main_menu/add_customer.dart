@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:supermarket_uae/screens/custom_designs/classes.dart';
 import 'package:supermarket_uae/screens/custom_designs/textformfield.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:supermarket_uae/screens/db_operations/customer_adding.dart';
+import 'package:supermarket_uae/screens/main_menu/view_customer.dart';
 import 'package:supermarket_uae/screens/model/add_customer.dart';
 
 class AddCustomer extends StatefulWidget {
   const AddCustomer({super.key});
-
-  set id(int id) {}
 
   @override
   State<AddCustomer> createState() => _AddCustomerState();
@@ -18,6 +18,8 @@ class _AddCustomerState extends State<AddCustomer> {
   final customerMail = TextEditingController();
   final customerPhone = TextEditingController();
   final customerAddress = TextEditingController();
+
+  final _addCustomer = CustomerAdding();
 
   final formKey = GlobalKey<FormState>();
 
@@ -152,7 +154,7 @@ class _AddCustomerState extends State<AddCustomer> {
                     alignment: Alignment.bottomRight,
                     child: ElevatedButton.icon(
                       onPressed: () {
-                        formKey.currentState!.validate();
+                        _saveCustomer();
                       },
                       label: const Text(
                         'Subimit',
@@ -171,5 +173,28 @@ class _AddCustomerState extends State<AddCustomer> {
         ),
       ),
     );
+  }
+
+  void _saveCustomer() async {
+    if (formKey.currentState!.validate()) {
+      final newCustomer = CustomerSection(
+          customerName: customerName.text.trim(),
+          customerPhone: customerPhone.text.trim(),
+          customerAddress: customerAddress.text.trim(),
+          customerMail: customerMail.text.trim());
+
+      await _addCustomer.addCustomer(newCustomer);
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+            backgroundColor: Colors.black,
+            behavior: SnackBarBehavior.floating,
+            margin: EdgeInsets.all(10),
+            content: Text('Successfully added')),
+      );
+
+      Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => ViewCustomer()));
+    }
   }
 }
