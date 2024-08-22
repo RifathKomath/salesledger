@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:supermarket_uae/screens/custom_designs/classes.dart';
 import 'package:supermarket_uae/screens/db_operations/customer_adding.dart';
+import 'package:supermarket_uae/screens/main_menu/additional/cutomer_details.dart';
 import 'package:supermarket_uae/screens/model/add_customer.dart';
 
 class ViewCustomer extends StatefulWidget {
@@ -80,7 +81,10 @@ searchController = TextEditingController();
               : ListView.builder(
                   itemCount: value.length,
                   itemBuilder: (context, index) => GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>CutomerDetails(customerSection: value[index],)));
+             
+                    },
                     child: Padding(
                       padding:
                           const EdgeInsets.only(left: 10, right: 10, top: 10),

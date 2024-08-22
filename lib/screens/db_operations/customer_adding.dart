@@ -53,4 +53,21 @@ class CustomerAdding {
     customerNotifier.value = searchResults;
     customerNotifier.notifyListeners();
   }
+
+  Future<void>editingDetails(CustomerSection value)async{
+if(customerBox==null){
+  openBox();
+print('box opened');
+} customerBox?.put(value.id, value);
+await updateValues();
+print('updated');
+  }
+
+  Future<void>deleteOption(int? id)async{
+    if(customerBox==null){
+      await openBox();
+    }
+    customerBox?.delete(id);
+    await updateValues();
+  }
 }

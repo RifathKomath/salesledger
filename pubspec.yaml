@@ -83,6 +83,7 @@ flutter:
     - assets/carousal/9-1024x576.jpg
     - assets/carousal/10-1024x576.jpg
     - assets/o1CzpmiVxe (1).json
+    - assets/1N4OhHgN4V.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

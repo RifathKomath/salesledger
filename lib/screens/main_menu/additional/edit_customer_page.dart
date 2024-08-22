@@ -3,17 +3,19 @@ import 'package:supermarket_uae/screens/custom_designs/classes.dart';
 import 'package:supermarket_uae/screens/custom_designs/textformfield.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:supermarket_uae/screens/db_operations/customer_adding.dart';
+import 'package:supermarket_uae/screens/main_menu/additional/cutomer_details.dart';
 import 'package:supermarket_uae/screens/main_menu/view_customer.dart';
 import 'package:supermarket_uae/screens/model/add_customer.dart';
 
-class AddCustomer extends StatefulWidget {
-  const AddCustomer({super.key});
+class EditCustomerPage extends StatefulWidget {
+  CustomerSection customerSection;
+   EditCustomerPage({super.key,required this.customerSection});
 
   @override
-  State<AddCustomer> createState() => _AddCustomerState();
+  State<EditCustomerPage> createState() => _EditCustomerPageState();
 }
 
-class _AddCustomerState extends State<AddCustomer> {
+class _EditCustomerPageState extends State<EditCustomerPage> {
   final customerName = TextEditingController();
   final customerMail = TextEditingController();
   final customerPhone = TextEditingController();
@@ -30,6 +32,14 @@ class _AddCustomerState extends State<AddCustomer> {
     'assets/carousal/9-1024x576.jpg',
     'assets/carousal/10-1024x576.jpg',
   ];
+  @override
+  void initState() {
+   customerName.text=widget.customerSection.customerName.toString();
+   customerAddress.text=widget.customerSection.customerAddress.toString();
+   customerPhone.text=widget.customerSection.customerPhone.toString();
+   customerMail.text=widget.customerSection.customerMail.toString();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,11 +51,11 @@ class _AddCustomerState extends State<AddCustomer> {
           backgroundColor: Colors.white,
           title: Row(
             children: [
-              Text('Add', style: firstTextStyle()),
+              Text('Edit', style: firstTextStyle()),
               const SizedBox(
                 width: 5,
               ),
-              Text('Customer', style: secondTextStyle()),
+              Text('Details', style: secondTextStyle()),
             ],
           ),
         ),
@@ -164,7 +174,7 @@ class _AddCustomerState extends State<AddCustomer> {
                     alignment: Alignment.bottomRight,
                     child: ElevatedButton.icon(
                       onPressed: () {
-                        _saveCustomer();
+                       _editCustomer();
                       },
                       label: const Text(
                         'Subimit',
@@ -185,7 +195,7 @@ class _AddCustomerState extends State<AddCustomer> {
     );
   }
 
-  void _saveCustomer() async {
+  void _editCustomer() async {
     final validate = customerName.text.trim().isNotEmpty &&
         customerAddress.text.trim().isNotEmpty &&
         customerPhone.text.trim().isNotEmpty &&
@@ -195,20 +205,22 @@ class _AddCustomerState extends State<AddCustomer> {
           customerName: customerName.text.toString(),
           customerPhone: customerPhone.text.toString(),
           customerAddress: customerAddress.text.toString(),
-          customerMail: customerMail.text.toString());
+          customerMail: customerMail.text.toString(),
+          id: widget.customerSection.id);
+          
 
-      await _addCustomer.addCustomer(newCustomer);
+      await _addCustomer.editingDetails(newCustomer);
 
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
             backgroundColor: Colors.black,
             behavior: SnackBarBehavior.floating,
             margin: EdgeInsets.all(10),
-            content: Text('Successfully added')),
+            content: Text('Successfully Edited')),
       );
 
       Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => ViewCustomer()));
+          MaterialPageRoute(builder: (context) => CutomerDetails(customerSection: widget.customerSection,)));
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
